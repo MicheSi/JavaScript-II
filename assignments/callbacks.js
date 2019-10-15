@@ -79,18 +79,27 @@ const multiply = function (x, y) {
 console.log(multiplyNums(8, 9, multiply));
 
 function contains(item, list, cb) {
-  // const ifPresent = ();
-  // for (i = 0; i < arr.length; i++) {
-  //   if (arr[i] === item) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // };
-  // cb(ifPresent());// contains checks if an item is present inside of the given array/list.
-  // Pass true to the callback if it is, otherwise pass false.
-};
+  // return cb(list.includes(item));
+  if (list.includes(item)) {
+    return cb(true);
+  } else {
+    return cb(false);
+  }
+}
+contains ('Gum', items, function(present){
+  console.log(present);
+});
 
+  // contains checks if an item is present inside of the given array/list.
+  // Pass true to the callback if it is, otherwise pass false.
+  
+// const isPresent = function (item, list) {
+//   if (list.includes(item)) {
+//     return cb(true);
+//   } else {
+//     return cb(false);
+//   }
+// };
 
 
 /* STRETCH PROBLEM */

@@ -3,6 +3,19 @@
 // Keep it simple! Remember a closure is just a function
 // that manipulates variables defined in the outer scope.
 // The outer scope can be a parent function, or the top level of the script.
+function planet (planetName) {
+  console.log(`We live on the planet ${planetName}.`)
+    function continent (continentName) {
+      console.log(`${continentName} is on the planet ${planetName}.`)
+      function country (countryName) {
+        console.log(`${countryName} is a country in the continent of ${continentName} on the planet ${planetName}.`)
+      }
+      country('Sweden')
+    }
+    continent('Europe');
+  }
+planet('Earth');
+
 
 
 /* STRETCH PROBLEMS, Do not attempt until you have completed all previous tasks for today's project files */
