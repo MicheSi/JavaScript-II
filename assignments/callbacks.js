@@ -1,6 +1,12 @@
 // Create a higher order function and invoke the callback function to test your work. You have been provided an example of a problem and a solution to see how this works with our items array.  Study both the problem and the solution to figure out the rest of the problems.
 
 const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
+function testItem(arr, cb) {
+  return cb(arr[1]);
+}
+const test = testItem(items, item => `Scribbles in my ${item}`);
+
+console.log(test);
 
 /* 
 
@@ -40,25 +46,61 @@ const items = ['Pencil', 'Notebook', 'yo-yo', 'Gum'];
 
 
 function getLength(arr, cb) {
-  // getLength passes the length of the array into the callback.
+  return cb(arr);// getLength passes the length of the array into the callback.
 }
+const newArr = (arr, cb) => {
+  return arr.length;
+}
+  
+console.log(getLength(items, newArr));
 
 function last(arr, cb) {
-  // last passes the last item of the array into the callback.
+  return cb(arr); // last passes the last item of the array into the callback.
 }
+const lastItem = (arr, cb) => {
+  return arr[arr.length-1];
+}
+console.log(last(items, lastItem));
 
 function sumNums(x, y, cb) {
-  // sumNums adds two numbers (x, y) and passes the result to the callback.
+  return cb(x, y);// sumNums adds two numbers (x, y) and passes the result to the callback.
 }
+const add = function (x, y) {
+  return x + y;
+}
+console.log(sumNums(4, 7, add));
 
 function multiplyNums(x, y, cb) {
-  // multiplyNums multiplies two numbers and passes the result to the callback.
+  return cb(x, y);// multiplyNums multiplies two numbers and passes the result to the callback.
 }
+const multiply = function (x, y) {
+  return x * y;
+}
+console.log(multiplyNums(8, 9, multiply));
 
 function contains(item, list, cb) {
+  // return cb(list.includes(item));
+  if (list.includes(item)) {
+    return cb(true);
+  } else {
+    return cb(false);
+  }
+}
+contains ('Gum', items, function(present){
+  console.log(present);
+});
+
   // contains checks if an item is present inside of the given array/list.
   // Pass true to the callback if it is, otherwise pass false.
-}
+  
+// const isPresent = function (item, list) {
+//   if (list.includes(item)) {
+//     return cb(true);
+//   } else {
+//     return cb(false);
+//   }
+// };
+
 
 /* STRETCH PROBLEM */
 
